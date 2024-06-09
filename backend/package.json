@@ -1,0 +1,44 @@
+{
+  "name": "sample-blockchain-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ganache": "ganache-cli --networkId $npm_package_config_ganache_networkId --allowUnlimitedContractSize --gasLimit $npm_package_config_ganache_gasLimit --gasPrice $npm_package_config_ganache_gasPrice --mnemonic \"$MNEMONIC\"",
+    "start": "concurrently \"npm run ganache\"   \"npm run migrate\" ",
+    "migrate": "rm -rf build && truffle migrate --reset --compile-all --network development",
+    "clean": "rimraf build"
+  },
+  "config": {
+    "ganache": {
+      "networkId": 5777,
+      "gasLimit": 6721975,
+      "gasPrice": 20000000000
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emailjs/nodejs": "^2.2.0",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "full-icu": "^1.5.0",
+    "install": "^0.13.0",
+    "ipfs-http-client": "^60.0.1",
+    "luxon": "^3.4.4",
+    "moralis": "^2.26.3",
+    "npm": "^10.8.1",
+    "tough-cookie": "^4.1.4",
+    "truffle": "^5.7.3",
+    "web3": "^4.9.0",
+    "webpack": "^5.91.0",
+    "yargs-parser": "^21.1.1"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.7"
+  }
+}
