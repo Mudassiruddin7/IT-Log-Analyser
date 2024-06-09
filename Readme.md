@@ -1,9 +1,5 @@
 # IT System log analyzer
 
-## Problem Statement
-
-1408 - IT System log analyzer
-
 ## Organization
 
 Ministry of Home Affairs
@@ -16,22 +12,19 @@ Software
 
 Blockchain & Cybersecurity
 
-## Objective
+## Problem Statement
 
 This website aims to address the need for a centralized system to analyze IT system logs across different locations of the Central Reserve Police Force (CRPF). Currently, there is no central platform for experts to assess threats and security breaches systematically. The proposed solution is to develop a centralized system for analyzing the IT systems deployed at various CRPF locations across the country.
 
-## Team Name : AlgoAllies
+## Team Name : Trojan Horse
 
-## Team Leader : [@ManasMadan](https://github.com/ManasMadan)
+## Team Leader : [@Mudassiruddin](https://github.com/Mudassiruddin7)
 
 ## Team
 
-- Meghna Malasi - 2022UCS1611
-- Krish Gupta - 2022UIC3507
-- Tanish Saxena - 2022UIC3511
-- Manas Madan - 2022UIC3533
-- Ayush Arora - 2022UIC3538
-- Devansh Behl - 2022UIC3582
+- Shaik Abrar
+- Mohammed Muqtadir Ahmed
+- Mohammed Himayath Aly
 
 ## Tech Stack
 
