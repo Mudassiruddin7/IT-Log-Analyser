@@ -28,7 +28,7 @@
     "fs": "^0.0.1-security",
     "full-icu": "^1.5.0",
     "install": "^0.13.0",
-    "ipfs-http-client": "^60.0.1",
+    "ipfs-http-client": "^50.1.2",
     "luxon": "^3.4.4",
     "moralis": "^2.26.3",
     "npm": "^10.8.1",

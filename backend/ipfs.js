@@ -1,27 +1,30 @@
 // ipfs.js
 
-const Moralis = require("moralis");
-const dotenv = require("dotenv");
-dotenv.config({ path: "./.env" });
-
-Moralis.start({
-  serverUrl: process.env.MORALIS_SERVER_URL,
-  appId: process.env.MORALIS_APP_ID
-});
+const IPFS = require('ipfs-http-client');
+const ipfs = IPFS.create();
 
 const addFileToIPFS = async (path, base64Content) => {
-  const file = new Moralis.File(path, { base64: base64Content });
-  const response = await file.saveIPFS();
-  return response._ipfsHash;
+  const file = {
+    path: path,
+    content: Buffer.from(base64Content, 'base64')
+  };
+  
+  const { cid } = await ipfs.add(file);
+  return cid.toString();
 };
 
 const addFilesToIPFS = async (arrayOfPathAndBase64Content) => {
-  const promises = arrayOfPathAndBase64Content.map(async (item) => {
-    const file = new Moralis.File(item.path, { base64: item.content });
-    const response = await file.saveIPFS();
-    return { path: item.path, ipfsHash: response._ipfsHash };
-  });
-  return Promise.all(promises);
+  const files = arrayOfPathAndBase64Content.map(item => ({
+    path: item.path,
+    content: Buffer.from(item.content, 'base64')
+  }));
+
+  const cids = [];
+  for await (const result of ipfs.addAll(files)) {
+    cids.push({ path: result.path, cid: result.cid.toString() });
+  }
+
+  return cids;
 };
 
 module.exports = { addFileToIPFS, addFilesToIPFS };
